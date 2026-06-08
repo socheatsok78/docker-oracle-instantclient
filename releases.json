@@ -1,4 +1,14 @@
 {
+  "23.26.2.0.0": {
+    "basic": {
+      "x64": "https://download.oracle.com/otn_software/linux/instantclient/2326200/instantclient-basic-linux.x64-23.26.2.0.0.zip",
+      "arm64": "https://download.oracle.com/otn_software/linux/instantclient/2326200/instantclient-basic-linux.arm64-23.26.2.0.0.zip"
+    },
+    "basiclite": {
+      "x64": "https://download.oracle.com/otn_software/linux/instantclient/2326200/instantclient-basiclite-linux.x64-23.26.2.0.0.zip",
+      "arm64": "https://download.oracle.com/otn_software/linux/instantclient/2326200/instantclient-basiclite-linux.arm64-23.26.2.0.0.zip"
+    }
+  },
   "23.26.1.0.0": {
     "basic": {
       "x64": "https://download.oracle.com/otn_software/linux/instantclient/2326100/instantclient-basic-linux.x64-23.26.1.0.0.zip",
