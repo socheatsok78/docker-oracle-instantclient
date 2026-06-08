@@ -99,6 +99,16 @@
       "arm64": null
     }
   },
+  "21.21.0.0.0": {
+    "basic": {
+      "x64": "https://download.oracle.com/otn_software/linux/instantclient/2121000/instantclient-basic-linux.x64-21.21.0.0.0dbru.zip",
+      "arm64": null
+    },
+    "basiclite": {
+      "x64": "https://download.oracle.com/otn_software/linux/instantclient/2121000/instantclient-basiclite-linux.x64-21.21.0.0.0dbru.zip",
+      "arm64": null
+    }
+  },
   "21.20.0.0.0": {
     "basic": {
       "x64": "https://download.oracle.com/otn_software/linux/instantclient/2120000/instantclient-basic-linux.x64-21.20.0.0.0dbru.zip",
