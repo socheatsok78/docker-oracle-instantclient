@@ -180,13 +180,9 @@ function main() {
 				;;
 			--generate-releases-json)
 				echo "INF: Generating releases.json file..."
-				# generate releases.json file in the root directory if it doesn't exist
-				if [ "${overwrite}" = true ]; then
-					rm -f "${RELEASES_FILE}"
-				fi
-				if [ ! -f "${RELEASES_FILE}" ]; then
-					releases | releasesjsonfile > "${RELEASES_FILE}"
-				fi
+				releases | releasesjsonfile > "${RELEASES_FILE}.tmp"
+				rm -f "${RELEASES_FILE}"
+				mv "${RELEASES_FILE}.tmp" "${RELEASES_FILE}"
 				exit 0
 				;;
 			*)
@@ -197,11 +193,17 @@ function main() {
 	done
 
 	if [ ! -f "${RELEASES_FILE}" ]; then
-		releases | releasesjsonfile > "${RELEASES_FILE}"
+		releases | releasesjsonfile > "${RELEASES_FILE}.tmp"
+		rm -f "${RELEASES_FILE}"
+		mv "${RELEASES_FILE}.tmp" "${RELEASES_FILE}"
 	fi
 
 	# generate files for each release
-	releases | while read -r version; do
+	releases | releaselibraryfiles
+}
+
+function releaselibraryfiles() {
+	while read -r version; do
 		if [ "${overwrite}" = true ]; then
 			rm -rf "${OUTDIR:?}/${version}"
 		fi
