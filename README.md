@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> Please migrate from `oracle-instantclient-distribution` to `oracle-instantclient` image as the former is deprecated and will no longer receive updates.
+
 # About
 The Oracle Instant Client distribution as container image
 
