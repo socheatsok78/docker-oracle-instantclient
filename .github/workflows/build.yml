@@ -33,7 +33,7 @@ jobs:
     with:
       flavor: latest=falses
       tags: type=raw,value=${{ matrix.version }}
-      permit-login: true
-      permit-push: ${{ github.event_name != 'pull_request' }}
-      permit-cache: true
+      permit-login: false
+      permit-push: false
+      permit-cache: false
     secrets: inherit
