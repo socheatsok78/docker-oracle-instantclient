@@ -2,6 +2,20 @@ name: "Build"
 
 on:
   workflow_dispatch:
+    inputs:
+      permit-login:
+        type: boolean
+        default: false
+        description: "Permit login to container registry"
+      permit-push:
+        type: boolean
+        description: "Permit pushing built images to container registry"
+        default: false
+      permit-cache:
+        type: boolean
+        description: "Permit using GitHub Actions cache for buildx"
+        default: false
+
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -33,7 +47,7 @@ jobs:
     with:
       flavor: latest=falses
       tags: type=raw,value=${{ matrix.version }}
-      permit-login: false
-      permit-push: false
-      permit-cache: false
+      permit-login: ${{ inputs.permit-login }}
+      permit-push: ${{ github.event_name != 'pull_request' || inputs.permit-push }}
+      permit-cache: ${{ inputs.permit-cache }}
     secrets: inherit
